@@ -39,6 +39,18 @@ app.delete("/remove/:id",async(req,res)=>{
      res.send(error)
     }
  })
+ //to update one data
+
+
+app.put('/edit/:id',async(req,res)=>{
+  try {
+    await productModel.findByIdAndUpdate(req.params.id,req.body)
+    res.send("update successfully")
+  } catch (error) {
+    res.send(error)
+  }
+})
+
 app.listen(port,()=>{
     console.log(`server is listening in port ${port}`)
 })
